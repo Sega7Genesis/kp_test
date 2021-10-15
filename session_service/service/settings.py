@@ -125,9 +125,3 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/static/'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://enine-car-service.herokuapp.com",
-    "http://enine-rent-office-service.herokuapp.com",
-    "http://enine-gateway-service.herokuapp.com",
-    "http://enine-booking-service.herokuapp.com",
-]
