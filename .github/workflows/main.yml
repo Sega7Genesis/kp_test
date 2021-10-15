@@ -26,4 +26,14 @@ jobs:
           {"imagename":"monitor-service","appname":"volosatov-monitor","apptype":"web"},
           {"imagename":"documentation-service","appname":"volosatov-documentation","apptype":"web"}]'
 
+      - name: Build and deploy
+          id: heroku2
+          uses: snithyanantham/docker-compose-multiple-apps-heroku-deploy@v1.0
+          with:
+            email: volosatovnek@yandex.ru
+            api_key: 2ef5351b-373f-4332-837e-c9cfb8064357
+            docker_compose_file: './docker-compose.yml'
+            heroku_apps: '[{"imagename":"generator-service","appname":"volosatov-generator","apptype":"web"},
+               {"imagename":"gateway-service","appname":"volosatov-gateway","apptype":"web"}]'
+
 
