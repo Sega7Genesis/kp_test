@@ -17,5 +17,5 @@ fi
 # Start server
 echo "Starting server"
 gunicorn \
-  --bind 0.0.0.0:$SERVICE_PORT \
+  --bind 0.0.0.0:$PORT \
   service.wsgi:application
