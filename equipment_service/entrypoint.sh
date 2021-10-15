@@ -13,5 +13,5 @@ python manage.py collectstatic --no-input
 echo "Starting server"
 echo $SERVICE_PORT
 gunicorn \
-  --bind 0.0.0.0:$SERVICE_PORT \
+  --bind 0.0.0.0:$PORT \
   service.wsgi:application
