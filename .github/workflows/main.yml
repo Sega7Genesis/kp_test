@@ -25,7 +25,6 @@ jobs:
           {"imagename":"equipment-service","appname":"volosatov-equipment","apptype":"web"},
           {"imagename":"monitor-service","appname":"volosatov-monitor","apptype":"web"},
           {"imagename":"documentation-service","appname":"volosatov-documentation","apptype":"web"}]'
-
       - name: Build and deploy
           id: heroku2
           uses: snithyanantham/docker-compose-multiple-apps-heroku-deploy@v1.0
