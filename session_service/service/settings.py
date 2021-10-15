@@ -86,7 +86,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'].update(dj_database_url.parse('postgres://dmpqdgghayqcyg:bdbf74a6b6aa20feffaafaf55c8e9fc1ff935c3667e5770e96081e2c8840d253@ec2-34-196-238-94.compute-1.amazonaws.com:5432/d3nfkuobgpm756'))
+DATABASES['default'].update(dj_database_url.parse('postgres://pxqyeehhamceni:7a7f613a9913a1573de3079525f55f216f9df6bb0b9fab5fb91f1a941708c222@ec2-52-212-157-46.eu-west-1.compute.amazonaws.com:5432/dbda0pbisub9je'))
 #auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [

@@ -1,2 +1,10 @@
 # Project exclude paths
-/venv/
+*.iml
+.DS_Store
+.idea
+.gradle
+out/
+build/
+
+**/__pycache__/
+**/venv/

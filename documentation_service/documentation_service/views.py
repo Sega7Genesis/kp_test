@@ -14,3 +14,4 @@ class DocumentationByEquipmentModelView(APIView):
             documentations = Documentation.objects.all()
         serializer = DocumentationModelSerializer(documentations, many=True)
         return Response(serializer.data)
+git remote set-url origin git@github.com:Sega7Genesis/kp_test.git
