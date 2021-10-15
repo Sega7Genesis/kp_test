@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add new location{% endblock %}
+
+{% block page %}
+    <form method="post" novalidate>
+    {% csrf_token %}
+        {{ form.model |as_crispy_field }}
+        <br>
+        {{ form.registration_number |as_crispy_field }}
+
+    <button type="submit" class="btn btn-success">Add new car</button>
+  </form>
+    {% if messages %}
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    {% endif %}
+{% endblock page %}

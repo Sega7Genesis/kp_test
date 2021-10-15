@@ -1,0 +1,118 @@
+version: "3"
+services:
+  postgres:
+    image: library/postgres:13
+    restart: always
+    expose:
+      - "5431"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./postgres/:/docker-entrypoint-initdb.d/
+    ports:
+      - "5431:5431"
+
+  equipment-service:
+    image: equipment-service:latest
+    container_name: equipment-service
+    depends_on:
+      - postgres
+    build:
+      context: ./equipment_service
+    volumes:
+      - ./equipment_service:/opt/equipment_service
+    environment:
+      SERVICE_PORT: 8500
+    ports:
+      - 8500:8500
+
+  monitor-service:
+    image: monitor-service:latest
+    container_name: monitor-service
+    depends_on:
+      - postgres
+    build:
+      context: ./monitor_service
+    volumes:
+      - ./monitor_service:/opt/monitor_service
+    environment:
+      SERVICE_PORT: 8501
+    ports:
+      - 8501:8501
+
+  session-service:
+    image: session-service:latest
+    container_name: session-service
+    depends_on:
+      - postgres
+    build:
+      context: session_service
+    volumes:
+      - ./session_service:/opt/session_service
+    environment:
+      SERVICE_PORT: 8502
+    ports:
+      - 8502:8502
+
+  gateway-service:
+    image: gateway-service:latest
+    container_name: gateway-service
+    depends_on:
+      - postgres
+    build:
+      context: gateway_service
+    volumes:
+      - ./gateway_service:/opt/gateway_service
+    environment:
+      SERVICE_PORT: 8503
+    ports:
+      - 8503:8503
+
+  report-service:
+    image: report-service:latest
+    container_name: report-service
+    depends_on:
+      - postgres
+    build:
+      context: report_service
+    volumes:
+      - ./report_service:/opt/report_service
+    environment:
+      SERVICE_PORT: 8504
+    ports:
+      - 8504:8504
+
+  generator-service:
+    image: generator-service:latest
+    container_name: generator-service
+    depends_on:
+      - postgres
+    build:
+      context: generator_service
+    volumes:
+      - ./generator_service:/opt/generator_service
+    environment:
+      SERVICE_PORT: 8505
+    ports:
+      - 8505:8505
+
+  documentation-service:
+    image: documentation-service:latest
+    container_name: documentation-service
+    depends_on:
+      - postgres
+    build:
+      context: documentation_service
+    volumes:
+      - ./documentation_service:/opt/documentation_service
+    environment:
+      SERVICE_PORT: 8506
+    ports:
+      - 8506:8506
+
+
+volumes:
+  db-data:

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Car Models{% endblock %}
+
+{% block page %}
+    <form method="post" novalidate>
+    {% csrf_token %}
+        {{ form.take_from_office |as_crispy_field }}
+        {{ form.booking_start |as_crispy_field }}
+        {{ form.booking_end |as_crispy_field }}
+        <button type="submit" class="btn btn-success">Filter</button>
+    </form>
+{% if cars %}
+    {% for car in cars %}
+        <div class='row border'>
+            <div class="col">
+              <h5>{{ car.brand }}</h5>
+              <span>{{ car.model }}</span>
+              <span>{{ car.type }}</span>
+              <span>{{ car.power }}</span>
+            </div>
+         </div>
+    {% endfor %}
+{% else %}
+    <p>No car models are available.</p>
+{% endif %}
+{% endblock %}

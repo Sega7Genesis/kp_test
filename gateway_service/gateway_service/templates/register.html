@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+{% block page %}
+    <form method="post" novalidate>
+    {% csrf_token %}
+        {{ form.login|as_crispy_field }}
+        <br>
+        {{ form.password|as_crispy_field }}
+        <br>
+        {{ form.confirm_password|as_crispy_field }}
+        <br>
+    <button type="submit" class="btn btn-success">Register</button>
+    <p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+  </form>
+{% endblock page %}

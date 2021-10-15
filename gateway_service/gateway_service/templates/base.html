@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title%}{% endblock %}</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+  <div class="row">
+    <div class="col-2 bg-secondary border-end">
+      <div class="row border-bottom">
+        {% if login %}
+        <div class="fs-2">{{ login }}</div><br>
+        <a href="/logout">logout</a>
+        {% else %}
+        <a href="/login">login</a><br>
+        <a href="/register">register</a>
+        {% endif %}
+      </div>
+      <div class="row text-center fs-3">
+        <a href="/cars">Cars</a><br>
+        <a href="/offices">Our offices</a><br>
+        {% if login %}
+          <a href="/cars_filter">Filter cars</a><br>
+          <a href="/bookings">Your bookings</a><br>
+        {% endif %}
+        {% if admin == 'True' %}
+          <a href="/reports">Show reports</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-6 bg-light text-center">
+        {% block page %}
+        {% endblock %}
+    </script>
+    </div>
+  </div>
+</body>
+</html>

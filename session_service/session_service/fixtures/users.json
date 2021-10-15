@@ -1,0 +1,22 @@
+[
+  {
+    "model": "session_service.user",
+    "pk": 1,
+    "fields": {
+      "user_uid": "0527def5-1b93-44ec-9953-fa109307da93",
+      "login": "test_user",
+      "password": "f7c3bc1d808e04732adf679965ccc34ca7ae3441",
+      "is_admin": false
+    }
+  },
+  {
+    "model": "session_service.user",
+    "pk": 2,
+    "fields": {
+      "user_uid": "b9e53bee-0fa2-4e46-9f89-7bf11ed7730f",
+      "login": "test_admin",
+      "password": "f7c3bc1d808e04732adf679965ccc34ca7ae3441",
+      "is_admin": true
+    }
+  }
+]

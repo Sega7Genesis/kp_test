@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Rent Offices{% endblock %}
+
+{% block page %}
+{% if offices %}
+    {% for office in offices %}
+        <div class='row border'>
+            <div class="col">
+              <h5>Location: {{ office.location }}</h5>
+            </div>
+            <div class="col">
+                <a href="offices/{{ office.rent_office_uid }}/cars" class="btn btn-info">Show cars</a>
+            </div>
+            {% if admin == 'True' %}
+              <div class="col">
+                  <a href="offices/{{ office.rent_office_uid }}/delete" class="btn btn-danger">Delete</a>
+              </div>
+            {% endif %}
+         </div>
+    {% endfor %}
+{% else %}
+    <p>No offices are available.</p>
+{% endif %}
+{% if admin == 'True' %}
+  <a href="/offices/add" class="btn btn-primary">Add new office</a>
+{% endif %}
+{% endblock %}

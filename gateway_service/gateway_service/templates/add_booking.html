@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add new booking{% endblock %}
+
+{% block page %}
+    <form method="post" novalidate>
+    {% csrf_token %}
+        {{ form.return_to_office |as_crispy_field }}
+        <br>
+        {{ form.booking_start |as_crispy_field }}
+        <br>
+        {{ form.booking_end |as_crispy_field }}
+        <br>
+
+    <button type="submit" class="btn btn-success">Add new booking</button>
+  </form>
+    {% if messages %}
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    {% endif %}
+{% endblock page %}

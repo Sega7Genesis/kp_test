@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Cars{% endblock %}
+
+{% block page %}
+{% if cars %}
+    {% for car in cars %}
+        <div class='row border'>
+            <div class="col">
+              <h5>{{ car.brand }}</h5>
+              <span>{{ car.model }}</span>
+              <span>{{ car.type }}</span>
+              <span>{{ car.power }}</span>
+            </div>
+            {% if admin == 'True' %}
+              <div class="col">
+                  <a href="cars/{{ car.car_uid }}/delete" class="btn btn-danger">Delete</a>
+              </div>
+            {% endif %}
+         </div>
+    {% endfor %}
+{% else %}
+    <p>No car models are available.</p>
+{% endif %}
+{% if admin == 'True' %}
+  <a href="cars/add" class="btn btn-primary">Add new car</a>
+{% endif %}
+{% endblock %}

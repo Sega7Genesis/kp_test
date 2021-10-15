@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block page %}
+{% if by_model_report %}
+    <h5>Booking by model report</h5>
+    {% for item in by_model_report %}
+        <div class='row border'>
+              <span>{{ item.model }}: {{ item.count }}</span>
+         </div>
+    {% endfor %}
+{% else %}
+    <p>Booking by model report is not available</p>
+{% endif %}
+<br>
+{% if by_office_report %}
+    <h5>Booking by office report</h5>
+    {% for item in by_office_report %}
+        <div class='row border'>
+              <span>{{ item.office }}: {{ item.count }}</span>
+         </div>
+    {% endfor %}
+{% else %}
+    <p>Booking by office report is not available</p>
+{% endif %}
+{% endblock %}

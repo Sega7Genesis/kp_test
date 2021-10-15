@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Your bookings{% endblock %}
+
+{% block page %}
+{% if bookings %}
+    {% for booking in bookings %}
+        <div class='row border'>
+            <div class="col">
+              {% if booking.car_brand %}
+              <h5>{{ booking.car_brand }} {{ booking.car_model }}, {{ booking.car_registration_number }}</h5>
+              {% else %}
+              <h5>Car undefined</h5>
+              {% endif %}
+
+              <span>Booking period: {{booking.booking_start}} - {{booking.booking_end}}</span><br>
+
+              <span>Booking status: {{ booking.booking_status }}</span><br>
+
+              {% if booking.payment_status %}
+              <span>Payment status: {{ booking.payment_status }}</span>
+               {% else %}
+              <span>Payment status undefined</span>
+              {% endif %}
+              <br>
+
+              {% if booking.take_from_office_location %}
+              <span>Take from office: {{ booking.take_from_office_location }}</span>
+              <br>
+              <span>Return to office: {{ booking.return_to_office_location }}</span>
+               {% else %}
+              <span>Take from office: undefined</span>
+              <br>
+              <span>Return to office: undefined</span>
+              {% endif %}
+            </div>
+            <div class="col">
+                {% if booking.payment_status == 'NEW' %}
+                  <a href="payments/{{ booking.payment_uid }}/pay" class="btn btn-primary">Pay</a>
+                <br>
+                <br>
+                {% endif %}
+                {% if booking.payment_status == 'PAID' and booking.booking_status != 'FINISHED' %}
+                    <a href="bookings/{{ booking.booking_uid }}/finish" class="btn btn-success">Finish</a>
+                <br>
+                {% endif %}
+                {% if booking.booking_status != 'CANCELED' and booking.booking_status != 'FINISHED' %}
+                <a href="bookings/{{ booking.booking_uid }}/cancel" class="btn btn-danger">Cancel</a>
+                {% endif %}
+            </div>
+         </div>
+    {% endfor %}
+{% else %}
+    <p>No bookings are available.</p>
+{% endif %}
+{% endblock %}

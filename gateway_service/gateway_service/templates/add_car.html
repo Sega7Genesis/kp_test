@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add new car model{% endblock %}
+
+{% block page %}
+    <form method="post" novalidate>
+    {% csrf_token %}
+        {{ form.brand|as_crispy_field }}
+        <br>
+        {{ form.model|as_crispy_field }}
+        <br>
+        {{ form.power|as_crispy_field }}
+        <br>
+        {{ form.type|as_crispy_field }}
+        <br>
+    <button type="submit" class="btn btn-success">Add car model</button>
+  </form>
+    {% if messages %}
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+    {% endif %}
+{% endblock page %}
