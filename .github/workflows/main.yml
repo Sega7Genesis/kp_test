@@ -1,0 +1,25 @@
+name: Build project
+on: [ push ]
+  #push:
+  #  branches:
+  #    - master
+  #pull_request:
+  #  branches:
+  #    - master
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # TODO deploy to Heroku
+      - name: Build and deploy
+        id: heroku1
+        uses: snithyanantham/docker-compose-multiple-apps-heroku-deploy@v1.0
+        with:
+          email: nekvolosatov@yandex.ru
+          api_key: f87aff0b-105f-411b-a861-4940c160ecbe
+          docker_compose_file: './docker-compose.yml'
+          heroku_apps: '[{"imagename":"session_service","appname":"volosatov-session","apptype":"web"}]'
+
+
