@@ -84,11 +84,11 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': '123456',
         'HOST': 'postgres',
-        'PORT': '5432',
+        'PORT': '5431',
     }
 }
 
-DATABASES['default'].update(dj_database_url.parse('postgres://ghxiwlaxdofnvb:49d66594c6db9cbc56596b9aa4a82d7bef0ba7f21b55fc2cdd00f2344494f908@ec2-54-195-195-81.eu-west-1.compute.amazonaws.com:5432/d7jr8jqetrt8mh'))
+DATABASES['default'].update(dj_database_url.parse('postgres://mexalnrhdhsjcc:f7a394620f627cd61a3017d8c0ac0b6c5fb0515bc73b61e3ca18f857c980ed46@ec2-54-246-90-10.eu-west-1.compute.amazonaws.com:5432/d1qtm2dkmf3msc'))
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators

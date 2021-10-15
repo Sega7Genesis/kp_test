@@ -20,6 +20,7 @@ jobs:
           email: nekvolosatov@yandex.ru
           api_key: f87aff0b-105f-411b-a861-4940c160ecbe
           docker_compose_file: './docker-compose.yml'
-          heroku_apps: '[{"imagename":"session-service","appname":"volosatov-session","apptype":"web"}]'
+          heroku_apps: '[{"imagename":"session-service","appname":"volosatov-session","apptype":"web"},
+          {"imagename":"report-service","appname":"volosatov-report","apptype":"web"}]'
 
 
