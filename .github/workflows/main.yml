@@ -22,6 +22,7 @@ jobs:
           docker_compose_file: './docker-compose.yml'
           heroku_apps: '[{"imagename":"session-service","appname":"volosatov-session","apptype":"web"},
           {"imagename":"report-service","appname":"volosatov-report","apptype":"web"},
-          {"imagename":"equipment-service","appname":"volosatov-equipment","apptype":"web"}]'
+          {"imagename":"equipment-service","appname":"volosatov-equipment","apptype":"web"},
+          {"imagename":"monitor-service","appname":"volosatov-monitor","apptype":"web"}]'
 
 
