@@ -49,7 +49,7 @@ services:
     depends_on:
       - postgres
     build:
-      context: session-service
+      context: session_service
     volumes:
       - ./session_service:/opt/session_service
     environment:
